@@ -1,0 +1,60 @@
+<md-dialog aria-label="Cliente">
+  <md-content class="sticky-container" style="width: 600px;padding: 24px;">
+    <md-subheader class="md-sticky-no-effect">Cliente</md-subheader>
+    <div class="dialog-content">
+        <td>
+          <md-input-container >
+            <label>Nombre</label>
+            <input ng-model="newCliente.nombre" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container >
+            <label>Apellido</label>
+            <input ng-model="newCliente.apellido" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container >
+            <label>CI</label>
+            <input ng-model="newCliente.ci" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container >
+            <label>RUC</label>
+            <input ng-model="newCliente.ruc" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container >
+            <label>Telefono</label>
+            <input ng-model="newCliente.telefono" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container >
+            <label>Celular</label>
+            <input ng-model="newCliente.celular" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container >
+            <label>mail</label>
+            <input ng-model="newCliente.mail" placeholder="Placeholder text">
+          </md-input-container>
+        </td>
+    </div>
+  </md-content>
+  <md-content layout="row">
+    <div class="md-actions"><a href="#" flex>Informe</a></div>
+    <div class="md-actions" layout="row" flex>
+      <md-button ng-click="answer('guardar')" class="md-primary">
+        Guardar
+      </md-button>
+      <md-button ng-click="answer()">
+        Cancelar
+      </md-button>
+    </div>
+  </md-content>
+</md-dialog>

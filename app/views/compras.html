@@ -1,0 +1,28 @@
+<md-content layout-margin layout-padding>
+
+  <h3>Compras</h3>
+
+  <md-input-container >
+    <label>Buscar</label>
+    <input ng-model="searchText" placeholder="">
+  </md-input-container>
+
+
+  <table class="hoverable">
+    <thead>
+      <tr>
+        <th data-field="Cliente">Cliente</th>
+        <th data-field="Comprobante">Nro. Comprobante</th>
+        <th data-field="Fecha">Fecha_Compra</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="compra in compras">
+      <tr ng-click="showAdvanced($event,compra)">
+        <td>{{compra.cliente.nombreCom}}</td>
+        <td>{{compra.nro_comprobante}}</td>
+        <td>{{compra.fecha_compra|date:"dd-MM-yyyy"}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</md-content>

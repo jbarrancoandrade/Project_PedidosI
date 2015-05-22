@@ -1,0 +1,30 @@
+<md-content layout-margin layout-padding>
+
+  <h3>Clientes</h3>
+
+  <md-input-container >
+    <label>Buscar</label>
+    <input ng-model="searchText" placeholder="">
+  </md-input-container>
+
+  <table class="hoverable">
+      <thead>
+        <tr>
+          <th>
+
+          <th data-field="Ruc">RUC</th>
+          <th data-field="NombreCom">Razon Social</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="cliente in clientes | filter: searchText" >
+        <tr ng-click="cargar($event,cliente)">
+          <td>{{cliente.Nit}}</td>
+          <td>{{cliente.Nombrecom}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+</md-content>
+
+
