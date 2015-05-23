@@ -2,19 +2,26 @@
 
 
 angular.module('projectPedidosApp')
-  .controller('ClientesCtrl',['$scope','clientes','$mdDialog','Auth', function ($scope, clientes, $mdDialog,Auth) {
-    clientes.get(function (response) {
+  .controller('ClientesCtrl',['$scope','clientes','$mdDialog','Auth','$http', function ($scope, clientes, $mdDialog,Auth,$http) {
+   /* clientes.get(function (response) {
       $scope.clientes = response.results;
+
+    });*/
+
+    $http.get('http://localhost:8080/appi_Salesautomation/rest/Customers/Getcustomers/001').success(function (data) {
+
+      $scope.datos = data;
+      console.log(data);
     });
+    $scope.clientes = clientes.get();
 
-    /*$scope.cargar = function (client) {
-      $scope.newCliente = client;
-    };*/
+    $scope.diaogNewUser = function($event, x) {
 
-    $scope.cargar = function(ev,cliente) {
+      var parentEl = angular.element(document.body);
       $mdDialog.show({
-        controller: ['$scope','$mdDialog', 'client' ,function ($scope, $mdDialog, client) {
-          console.log(client);
+        controller: ['$scope','$mdDialog' ,'client' ,function ($scope, $mdDialog,client) {
+
+
           $scope.newCliente = client;
           $scope.hide = function () {
             $mdDialog.hide();
@@ -26,24 +33,22 @@ angular.module('projectPedidosApp')
             $mdDialog.hide(answer);
           };
         }],
+        parent: parentEl,
+        targetEvent: $event,
         templateUrl: 'views/dialogs/dialogo_cliente.html',
-        targetEvent: ev,
-        locals: {client: cliente},
+        locals: {client: x},
         bindToController: true
-      })
-        .then(function(answer) {
-          $scope.alert = 'You said the information was "' + answer + '".';
-        }, function() {
-          $scope.alert = 'You cancelled the dialog.';
-        });
+      });
+
+
+    }
+
+  $scope.closeDialog = function() {
+      // Easily hides most recent dialog shown...
+      // no specific instance reference is needed.
+      $mdDialog.cancel('cancelled');
     };
 
-    $scope.logout = function () {
-      $scope.dataLoading = false;
-      Auth.ClearCredentials();
-      $location.path('/Login.html');
-
-    };
 
 
   }]);
