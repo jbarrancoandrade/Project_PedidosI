@@ -14,7 +14,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <!--<link rel="stylesheet" href="styles/main.css">-->
+    <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
    <script>
@@ -42,7 +42,7 @@
   <!-- Add your site or application content here -->
   <md-toolbar class="titulo-toolbar  blue lighten-2" layout="row" ng-controller="indexCtrl" >
 
-    <md-button hide-gt-md ng-click="toggleLeft()" ng-show="globals.currentUser.authLog">
+    <md-button hide-gt-md ng-click="toggleLeft()"  aria-label="toggle"  ng-show="globals.currentUser.authLog">
       <i class="mdi-navigation-menu"></i>
 
     </md-button>
@@ -64,20 +64,46 @@
 
   <div layout="row" flex  >
 
-    <md-sidenav  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left md-whiteframe-z2 blue lighten-4" layout="column" ng-show="globals.currentUser.authLog">
+    <md-sidenav  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left md-whiteframe-z2 #212121 grey darken-4" layout="column" ng-show="globals.currentUser.authLog">
       <br>
-      <md-button class="waves-effect waves-light btn blue lighten-3" ng-href="#/home" ng-click="toggleLeft()"  style="text-align: left;"><i class="small mdi-action-home" ></i>Inicio</md-button>
-      <md-button class="waves-effect waves-light btn blue lighten-3" ng-href="#/clientes" class="menu-item-link izquierdaaling" style="text-align: left;">Clientes</md-button>
-      <md-button ng-href="#/proveedores">Proveedores</md-button>
-      <md-button class="waves-effect waves-light btn blue lighten-3" ng-href="#/compras" class="izquierdaaling" style="text-align: left;">Compras</md-button>
-      <!--<md-button ng-href="#/servicios">Servicios</md-button>-->
-      <md-button class="waves-effect waves-light btn blue lighten-3" ng-href="#/productos" class="izquierdaaling" style="text-align: left;">Productos</md-button>
-      <md-button class="waves-effect waves-light btn blue lighten-3" ng-href="#/ventas" class="izquierdaaling" style="text-align: left;">Ventas</md-button>
+      <md-button class="waves-effect waves-light  efecto "  ng-href="#/home" ng-click="toggleLeft()"   aria-label="toggle"  style="text-align: left;"><i class="small mdi-action-home" ></i>Inicio</md-button>
+      <md-button class="waves-effect waves-light  efecto" ng-href="#/clientes" class="menu-item-link " style="text-align: left;"><i class="small mdi-action-assignment" ></i> Nuevo Pedido</md-button>
+     <!-- <md-button ng-href="#/proveedores">Proveedores</md-button>-->
+      <md-button class="waves-effect waves-light  efecto" ng-href="#/compras" class="" style="text-align: left;"><i class="small mdi-action-shopping-basket"></i> Pedidos </md-button>
+      <md-button class="waves-effect waves-light  efecto" ng-href="#/facturas" style="text-align: left;"><i class="small mdi-action-wallet-travel"></i> Inventarios</md-button>
+      <md-button class="waves-effect waves-light  efecto" ng-href="#/productos" class="" style="text-align: left;">Productos</md-button>
+      <!---<md-button class="waves-effect waves-light efecto" ng-href="#/ventas" class="" style="text-align: left;">Ventas</md-button>-->
 
 
 
     </md-sidenav>
 
+    <style>
+      .identity {
+        display: inline-block;
+        min-width: 250px;
+        bottom: 45px;
+        right: 24px
+      }
+      .identity img {
+        float: left;
+        display: inline-block;
+        vertical-align: top;
+        width: 80px;
+        margin-right: 15px;
+        border-radius: 100%;
+      }
+      .identity .name {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 3px;
+        color:white;
+      }
+      .identity .info {
+        color: #888;
+      }
+
+    </style>
 
 
 
@@ -87,6 +113,22 @@
       <div ng-view=""></div>
     </md-content>
   </div>
+
+  <footer style="background: #212121" ng-show="globals.currentUser.authLog" >
+    <div class="bottom pull-right">
+      <!-- identity -->
+      <div class="identity">
+        <img src="http://iconizer.net/files/Bunch_of_Bluish_Icons/orig/user.png" />
+        <span class="name">Jhon Barranco</span> <br/>
+        <span class="info">Vendedor </span> <br/>
+        <span class="info">654789 ventas</span>
+
+      </div>
+      </div>
+    <span  style="font-size: 19px;text-align: center;color:white" ><p>  © Quality Systems Grup</p></span>
+  </footer>
+
+
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
@@ -135,12 +177,12 @@
   <script src="scripts/controllers/compras.js"></script>
   <script src="scripts/controllers/servicios.js"></script>
   <script src="scripts/controllers/productos.js"></script>
-  <script src="scripts/controllers/ventas.js"></script>
+  <script src="scripts/controllers/almacen.js"></script>
   <script src="scripts/controllers/facturas.js"></script>
   <script src="scripts/services/compras.js"></script>
   <script src="scripts/services/servicios.js"></script>
   <script src="scripts/services/productos.js"></script>
-  <script src="scripts/services/ventas.js"></script>
+  <script src="scripts/services/almacen.js"></script>
   <script src="scripts/services/facturas.js"></script>
 
   <script src="scripts/controllers/auth.js"></script>

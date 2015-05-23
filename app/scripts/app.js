@@ -8,6 +8,7 @@
  *
  * Main module of the application.
  */
+
 angular
   .module('projectPedidosApp', [
     'ngAnimate',
@@ -46,9 +47,9 @@ angular
         templateUrl: 'views/productos.html',
         controller: 'ProductosCtrl'
       })
-      .when('/ventas',{
-        templateUrl: 'views/ventas.html',
-        controller: 'VentasCtrl'
+      .when('/Almacenes',{
+        templateUrl: '../views/Almacenes.html',
+        controller: 'AlmCtrl'
       })
       .when('/facturas',{
         templateUrl: 'views/facturas.html',
@@ -83,4 +84,4 @@ angular
           $location.path('/Login');
         }
       });
-    }]);
+    }])

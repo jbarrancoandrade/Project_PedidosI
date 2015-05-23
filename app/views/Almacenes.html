@@ -1,0 +1,33 @@
+
+<md-content layout-margin layout-padding>
+
+  <h3>Almacenes & lista Precios</h3>
+
+  <form>
+  <md-input-container>
+  <md-select name="myModel" placeholder="Seleccione Almacen" ng-model="myModel" required>
+    <md-option value="1">BODEGA PRINCIPAL</md-option>
+    <md-option value="2">CALLE LIBRE</md-option>
+  </md-select>
+
+
+
+</md-input-container>
+
+  <md-input-container>
+    <md-select name="myModel" placeholder="Seleccione Lista De Precios" ng-model="myModel1" required>
+      <md-option value="01">DESCUENTOS</md-option>
+      <md-option value="02">PREFERENCIAL</md-option>
+    </md-select>
+
+
+
+  </md-input-container>
+
+  <div layout="row" >
+    <md-button ng-click="clearValue()" ng-disabled="!myModel" style="margin-right: 20px;margin: 0 auto;">Limpiar</md-button>
+    <md-button ng-click="Continuar()" ng-disabled="!myModel1" class="md-primary" layout layout-align="center end" style="margin: 0 auto;">Continuar</md-button>
+  </div>
+  </form>
+
+</md-content>

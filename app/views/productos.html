@@ -1,78 +1,101 @@
-<div>
-  <md-grid-list
-    md-cols="6" md-row-height="1:1" md-gutter="8px">
-    <md-grid-tile class="gray"
-                  md-rowspan="2" md-colspan="2">
-      <md-grid-tile-footer>
-        <h3>First</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
 
-    <md-grid-tile class="green">
-      <md-grid-tile-footer>
-        <h3>Green</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
+<link rel="stylesheet" href="styles/Product.css">
+<md-content layout-margin layout-padding>
 
-    <md-grid-tile class="yellow">
-      <md-grid-tile-footer>
-        <h3>Yellow</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
+  <h3>Productos</h3>
 
-    <md-grid-tile class="blue"
-                  md-colspan="2">
-      <md-grid-tile-footer>
-        <h3>Blue</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
-
-    <md-grid-tile class="red"
-                  md-rowspan="2" md-colspan="2">
-      <md-grid-tile-footer>
-        <h3>Big Red</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
+  <md-input-container aria-label="" >
+    <label>Buscar</label>
+    <input ng-model="searchText"   >
+  </md-input-container>
 
 
 
 
 
-    <md-grid-tile class="green">
-      <md-grid-tile-footer>
-        <h3>Second Row</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
 
-    <md-grid-tile class="purple">
-      <md-grid-tile-footer>
-        <h3>Purple</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
 
-    <md-grid-tile class="red">
-      <md-grid-tile-footer>
-        <h3>Red</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
+  <div class="fixed-action-btn" style="bottom: 90px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large mdi-editor-mode-edit"></i>
+    </a>
+    <ul>
+        <li><a class="btn-floating green"><i class="large mdi-action-add-shopping-cart"></i></a></li>
+      <li><a class="btn-floating blue" ng-click="filtro = !filtro"><i class="large mdi-content-filter-list"></i></a></li>
+    </ul>
+  </div>
 
-    <md-grid-tile class="purple">
-      <md-grid-tile-footer>
-        <h3>Purple</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
 
-    <md-grid-tile class="blue">
-      <md-grid-tile-footer>
-        <h3>Blue</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
+  <div id="filter-bar" class="sc-text-sm ng-animation-slider sc-p-md sc-m-b-lg" ng-show="filtro">
+    <div class="row">
+      <div class="sc-m-l-md sc-form-group align-xs-center align-sm-left">
+        <label>
+          <div class="sc-label">Devedor</div>
+          <select class="sc-input-default">
+            <option value=""></option>
+            <option value="rateio">Rateio</option>
+            <option value="">Torre 1 - 101</option>
+            <option value="">Torre 1 - 102</option>
+            <option value="">Torre 1 - 103</option>
+            <option value="">Torre 1 - 104</option>
+            <option value="">Torre 1 - 201</option>
+          </select>
+        </label>
+      </div>
 
-    <md-grid-tile class="gray">
-      <md-grid-tile-footer>
-        <h3>Gray</h3>
-      </md-grid-tile-footer>
-    </md-grid-tile>
+      <div class="sc-m-l-md align-xs-center align-sm-left">
+        <label>
+          <div class="sc-label">A partir de</div>
+          <input type="date" class="sc-input-default sc-input-date">
+        </label>
+      </div>
 
-  </md-grid-list>
-</div>
+      <div class="sc-m-l-md align-xs-center align-sm-left">
+        <label>
+          <div class="sc-label">Até</div>
+          <input type="date" class="sc-input-default sc-input-date">
+        </label>
+      </div>
+      <div class="sc-m-l-md align-xs-center align-sm-left">
+        <label><div class="sc-label">Status</div></label>
+        <label>
+            <span class="sc-toggle" >
+              <input type="checkbox" checked />
+              <span label-true="Gerado" label-false="Aguardando"></span>
+            </span>
+        </label>
+      </div>
+    </div>
+
+    <hr>
+
+    <button class="sc-btn sc-btn-awesomeness sc-btn-blue" ng-click="novaBusca()">
+      <div class="sc-btn-icon"><i class="sc-icon sc-icon-fw sc-icon-lupa-2"></i></div>
+      <div class="sc-btn-text">Aplicar</div>
+    </button>
+
+    <button class="sc-btn sc-btn-awesomeness sc-btn-red" ng-click="filtro.avancado.toggle()">
+      <div class="sc-btn-icon"><i class="sc-icon sc-icon-fw sc-icon-fechar-1"></i></div>
+      <div class="sc-btn-text">Cancelar</div>
+    </button>
+
+  </div> <!-- #filter-bar -->
+
+  <ul class="catCardList">
+
+    <li class="catCardList" ng-repeat="producto in productos | filter: searchText ">
+      <div class="catCard"><a href="#"><img src="http://lorempixel.com/150/150/technics/{{$index+1}}/"  alt=""></a>
+        <div class="lowerCatCard">
+          <h3>{{producto.Nomins}}</h3>
+          <h4>{{producto.Codins}}</h4>
+          <div class="startingPrice">{{$index+1}} - precio <span>{{producto.Valvta | currency:"$"}}</span></div>
+
+          <div id="catCardButton" class="button"><a href="#">Ver Producto</a></div>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+</md-content>
+

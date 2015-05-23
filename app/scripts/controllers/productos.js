@@ -3,7 +3,9 @@
 
 angular.module('projectPedidosApp')
   .controller('ProductosCtrl',['$scope', 'productos', function ($scope, productos) {
-    productos.get(function (response) {
-      $scope.productos = response.results;
-    });
+
+
+    //obteniedo data
+    $scope.productos = productos.get();
+
   }]);

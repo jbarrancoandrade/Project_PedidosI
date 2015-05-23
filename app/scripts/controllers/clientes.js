@@ -2,48 +2,44 @@
 
 
 angular.module('projectPedidosApp')
-  .controller('ClientesCtrl',['$scope','clientes','$mdDialog','Auth', function ($scope, clientes, $mdDialog,Auth) {
-    clientes.get(function (response) {
-      $scope.clientes = response.results;
-    });
+  .controller('ClientesCtrl',['$scope','clientes','$mdDialog','Auth','$http', function ($scope, clientes, $mdDialog,Auth,$http) {
 
-    /*$scope.cargar = function (client) {
-      $scope.newCliente = client;
-    };*/
+    //obteniedo data de los clientes
+    $scope.clientes = clientes.get();
 
-    $scope.cargar = function(ev,cliente) {
+    //recibe evento click y datos del cliente escojido en este caso renombrada x
+    $scope.diaogNewUser = function($event, x) {
+      //para agregar un body al elemento angular
+      var parentEl = angular.element(document.body);
       $mdDialog.show({
-        controller: ['$scope','$mdDialog', 'client' ,function ($scope, $mdDialog, client) {
-          console.log(client);
+        controller: ['$scope','$mdDialog' ,'client','$location' ,function ($scope, $mdDialog,client, $location) {
+
+          //binding de los datos de un cliente
           $scope.newCliente = client;
-          $scope.hide = function () {
-            $mdDialog.hide();
-          };
+
+          //metodo que cancela el dialogo
           $scope.cancel = function () {
             $mdDialog.cancel();
           };
-          $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
+
+          //metodo continuar siguiente template
+          $scope.continuar = function (x) {
+            $mdDialog.hide();
+            $location.path('/Almacenes');
+
           };
         }],
+        parent: parentEl,
+        targetEvent: $event,
         templateUrl: 'views/dialogs/dialogo_cliente.html',
-        targetEvent: ev,
-        locals: {client: cliente},
+        locals: {client: x},
         bindToController: true
-      })
-        .then(function(answer) {
-          $scope.alert = 'You said the information was "' + answer + '".';
-        }, function() {
-          $scope.alert = 'You cancelled the dialog.';
-        });
-    };
+      });
 
-    $scope.logout = function () {
-      $scope.dataLoading = false;
-      Auth.ClearCredentials();
-      $location.path('/Login.html');
 
-    };
+    }
+
+
 
 
   }]);
