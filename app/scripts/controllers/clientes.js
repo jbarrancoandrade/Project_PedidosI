@@ -7,9 +7,7 @@ angular.module('projectPedidosApp')
       $scope.clientes = response.results;
     });
 
-    /*$scope.cargar = function (client) {
-      $scope.newCliente = client;
-    };*/
+
 
     $scope.cargar = function(ev,cliente) {
       $mdDialog.show({
