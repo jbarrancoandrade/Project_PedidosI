@@ -2,7 +2,7 @@
 
 
 angular.module('projectPedidosApp')
-  .controller('ClientesCtrl',['$scope','clientes','$mdDialog','Auth', function ($scope, clientes, $mdDialog,Auth) {
+  .controller('ClientesCtrl',['$scope','clientes','$mdDialog','Auth','$location', function ($scope, clientes, $mdDialog,Auth,location) {
 
 
     /*$scope.cargar = function (client) {
@@ -35,7 +35,7 @@ angular.module('projectPedidosApp')
     $scope.logout = function () {
       $scope.dataLoading = false;
       Auth.ClearCredentials();
-      $location.path('/Login.html');
+      location.path('/Login.html');
 
     };
 

@@ -26,7 +26,12 @@ angular.module('projectPedidosApp').controller('AuthCtrl',
       };
 
 
+      $scope.logout = function () {
+        $scope.dataLoading = false;
+        Auth.ClearCredentials();
+        $location.path('/Login.html');
 
+      };
 
 
 

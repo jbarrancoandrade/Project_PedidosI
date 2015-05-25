@@ -35,12 +35,9 @@
 
   </head>
   <body ng-app="projectPedidosApp" layout="column">
-  <!--[if lt IE 7]
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
 
-  <!-- Add your site or application content here -->
-  <md-toolbar class="titulo-toolbar  blue lighten-2" layout="row" ng-controller="indexCtrl" >
+
+   <md-toolbar class="titulo-toolbar  blue lighten-2" layout="row" ng-controller="indexCtrl" >
 
     <md-button hide-gt-md ng-click="toggleLeft()"  aria-label="toggle"  ng-show="globals.currentUser.authLog">
       <i class="mdi-navigation-menu"></i>
@@ -53,11 +50,10 @@
     </h2>
 
 
-    <form accept-charset="UTF-8" name="form" ng-submit="logout()" role="form">
       <div class="fixed-action-btn" style="top: 2px; right: 24px;" ng-show="globals.currentUser.authLog">
-      <button type="submit" class=" btn-floating blue"  ng-="logout()"><i class="large  mdi-action-settings-power "  ></i></button>
+      <a  class=" btn-floating blue"  ng-href="#/logout"><i class="large  mdi-action-settings-power "  ></i></a>
     </div>
-    </form>
+
   </md-toolbar>
 
 

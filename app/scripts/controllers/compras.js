@@ -51,5 +51,12 @@ angular.module('projectPedidosApp')
           $scope.alert = 'You cancelled the dialog.';
         });
     };
+
+    $scope.logout = function () {
+      $scope.dataLoading = false;
+      Auth.ClearCredentials();
+      $location.path('/Login.html');
+
+    };
   }]);
 

@@ -6,4 +6,8 @@
 angular.module('projectPedidosApp')
   .controller('AboutCtrl', function () {
 
-  });
+
+
+  }
+
+  );

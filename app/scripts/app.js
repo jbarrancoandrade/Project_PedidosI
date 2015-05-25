@@ -64,6 +64,9 @@ angular
         controller:  'AuthCtrl',
         hideMenus: true
       })
+      .when('/logout', {
+      controller: 'LogoutController'
+       })
       .otherwise({
         redirectTo: '/'
       });

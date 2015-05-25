@@ -10,4 +10,7 @@ angular.module('projectPedidosApp')
     detalleServicio.get(function (response) {
       $scope.detalleServicio = response.results;
     });
+
+
+
   }]);

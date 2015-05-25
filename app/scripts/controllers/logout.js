@@ -1,12 +1,10 @@
 'use strict';
 
-
+/**
+ *
+ */
 angular.module('projectPedidosApp')
-  .controller('FacturasCtrl',['$scope', 'facturas', function ($scope, facturas) {
-
-    facturas.get(function (response) {
-      $scope.facturas = response.results;
-    });
+  .controller('LogoutController',['$scope','$location','Auth', function ($scope,$location, Auth) {
 
     $scope.logout = function () {
       $scope.dataLoading = false;
@@ -14,4 +12,7 @@ angular.module('projectPedidosApp')
       $location.path('/Login.html');
 
     };
-  }]);
+
+  }]
+
+);
