@@ -10,31 +10,37 @@ angular.module('projectPedidosApp').factory('Auth',
       service.Login = function (username, password, callback) {
 
         /* Simulando una autenticacion
-         ----------------------------------------------*/
-        $timeout(function(){
+           ----------------------------------------------*/
+        /* $timeout(function(){
           var response = { success: username === 'Jbarranco' && password === '123' };
+          console.log(response);
           if(!response.success) {
             response.message = 'Username or password is incorrect';
           }
           callback(response);
-        }, 1000);
+        }, 1000);*/
 
 
         /* autenticacion real
          ----------------------------------------------*/
-        //$http.post('/api/authenticate', { username: username, password: password })
-        //    .success(function (response) {
-        //        callback(response);
-        //    });
+        $http({
+          method : 'POST',
+          url    : 'http://192.168.1.55:8080/appi_Salesautomation/rest/login/logina',
+            data : $.param({
+              'username' : username,
+              'password' : password
+
+            }),
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        }).success(function(response){
+        //  console.log(response.success);
+          callback(response);//errores revisar (metodo debe recibir success true
+        });
+
+
+
 
       };
-
-
-
-
-
-
-
 
       service.SetCredentials = function (username, password,conectado) {
         var authdata = Base64.encode(username + ':' + password+';.'+conectado);

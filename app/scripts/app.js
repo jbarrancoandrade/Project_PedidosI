@@ -51,9 +51,9 @@ angular
         templateUrl: '../views/Almacenes.html',
         controller: 'AlmCtrl'
       })
-      .when('/facturas',{
-        templateUrl: 'views/facturas.html',
-        controller: 'FacturasCtrl'
+      .when('/Inventarios',{
+        templateUrl: '../views/Inventarios.html',
+        controller: 'InventCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',

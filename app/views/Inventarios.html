@@ -1,0 +1,40 @@
+<md-content layout-margin layout-padding>
+
+  <h3>Inventarios</h3>
+
+  <md-input-container aria-label="" >
+    <label>Buscar</label>
+    <input ng-model="searchText"   >
+  </md-input-container>
+
+  <table class="centered bordered">
+    <thead>
+    <tr>
+
+      <!--<th></th>-->
+      <th data-field="Codigo">Codigo</th>
+      <th data-field="Producto">Producto</th>
+      <th data-field="Referencia">Referencia</th>
+      <th data-field="IVA">Iva</th>
+      <th data-field="CANT">Cant</th>
+      <th data-field="UND">UND</th>
+      <th data-field="Valor">Valor</th>
+
+    </tr>
+    </thead>
+    <tbody ng-repeat="inventario in inventarios | filter: searchText " >
+    <tr >
+     <!-- <td>{{$index+1}}</td>-->
+      <td>{{inventario.codins}}</td>
+      <td>{{inventario.nomins}}</td>
+      <td>{{inventario.refins}}</td>
+      <td>{{inventario.margenIva | currency:'%'}}</td>
+      <td>{{inventario.caninv}}</td>
+      <td>{{inventario.undIns}}</td>
+      <td>{{inventario.valInv | currency:'$'}}</td>
+
+    </tr>
+    </tbody>
+  </table>
+
+</md-content>

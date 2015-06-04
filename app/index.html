@@ -49,24 +49,33 @@
       <span>Pedidos Online</span>
     </h2>
 
+     <md-button class="md-icon-button" aria-label="Settings">
+       <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+     </md-button>
 
-      <div class="fixed-action-btn" style="top: 2px; right: 24px;" ng-show="globals.currentUser.authLog">
+
+      <!--<div class="fixed-action-btn" style="top: 2px; right: 24px;" ng-show="globals.currentUser.authLog">
       <a  class=" btn-floating blue"  ng-href="#/logout"><i class="large  mdi-action-settings-power "  ></i></a>
-    </div>
+    </div>-->
+
+    <md-button class="md-icon-button" aria-label="More" style="top: 5px; right: 24px;" ng-show="globals.currentUser.authLog">
+          <span><i class="small mdi-action-settings-power"></i></span>
+    </md-button>
 
   </md-toolbar>
 
 
 
+
   <div layout="row" flex  >
 
-    <md-sidenav  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left md-whiteframe-z2 #212121 grey darken-4" layout="column" ng-show="globals.currentUser.authLog">
+    <md-sidenav  md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" class="md-sidenav-left md-whiteframe-z2 #212121 grey darken-4 col s12 m4 l3" layout="column" ng-show="globals.currentUser.authLog">
       <br>
       <md-button class="waves-effect waves-light  efecto "  ng-href="#/home" ng-click="toggleLeft()"   aria-label="toggle"  style="text-align: left;"><i class="small mdi-action-home" ></i>Inicio</md-button>
       <md-button class="waves-effect waves-light  efecto" ng-href="#/clientes" class="menu-item-link " style="text-align: left;"><i class="small mdi-action-assignment" ></i> Nuevo Pedido</md-button>
      <!-- <md-button ng-href="#/proveedores">Proveedores</md-button>-->
       <md-button class="waves-effect waves-light  efecto" ng-href="#/compras" class="" style="text-align: left;"><i class="small mdi-action-shopping-basket"></i> Pedidos </md-button>
-      <md-button class="waves-effect waves-light  efecto" ng-href="#/facturas" style="text-align: left;"><i class="small mdi-action-wallet-travel"></i> Inventarios</md-button>
+      <md-button class="waves-effect waves-light  efecto" ng-href="#/Inventarios" style="text-align: left;"><i class="small mdi-action-wallet-travel"></i> Inventarios</md-button>
       <md-button class="waves-effect waves-light  efecto" ng-href="#/productos" class="" style="text-align: left;">Productos</md-button>
       <!---<md-button class="waves-effect waves-light efecto" ng-href="#/ventas" class="" style="text-align: left;">Ventas</md-button>-->
 
@@ -104,13 +113,13 @@
 
 
 
-    <md-content class="content" flex>
+    <md-content class="content col s12 m8 l9" flex>
       <br>
       <div ng-view=""></div>
     </md-content>
   </div>
 
-  <footer style="background: #212121" ng-show="globals.currentUser.authLog" >
+  <footer style="background: #212121" ng-show="globals.currentUser.authLog" class="col s12 m8 l9">
     <div class="bottom pull-right">
       <!-- identity -->
       <div class="identity">
@@ -121,7 +130,7 @@
 
       </div>
       </div>
-    <span  style="font-size: 19px;text-align: center;color:white" ><p>  © Quality Systems Grup</p></span>
+
   </footer>
 
 
@@ -174,12 +183,12 @@
   <script src="scripts/controllers/servicios.js"></script>
   <script src="scripts/controllers/productos.js"></script>
   <script src="scripts/controllers/almacen.js"></script>
-  <script src="scripts/controllers/facturas.js"></script>
+  <script src="scripts/controllers/Inventarios.js"></script>
   <script src="scripts/services/compras.js"></script>
   <script src="scripts/services/servicios.js"></script>
   <script src="scripts/services/productos.js"></script>
   <script src="scripts/services/almacen.js"></script>
-  <script src="scripts/services/facturas.js"></script>
+  <script src="scripts/services/inventarios.js"></script>
 
   <script src="scripts/controllers/auth.js"></script>
   <script src="scripts/services/auth.js"></script>
